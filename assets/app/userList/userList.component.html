@@ -1,13 +1,9 @@
-<div class="ibox-content">
-    <div class="row">
-        <div class="col-md-2">
-            <div class="chat-users">
-                <div class="users-list">
-                </div>
+<div class="chat-users">
+    <div class="users-list" *ngFor="let User of Users">
+        <div class="chat-user">
+            <div class="chat-user-name">
+                <a href="#"> {{ User.firstName }}</a>
             </div>
-        </div>
-        <div class="col-md-9 ">
-            <div class="chat-discussion" id='chatdiscussion' />
         </div>
     </div>
 </div>
