@@ -11,7 +11,10 @@ import { AuthenticationComponent } from "./auth/authentication.component";
 import { HeaderComponent } from "./shared/header/header.component";
 import { ListComponent } from "./chat/message-list.component";
 import { routing } from "./app.route";
-import {APP_BASE_HREF} from '@angular/common';
+import { APP_BASE_HREF } from '@angular/common';
+import { LogoutComponent } from "./auth/logout.component";
+import { SigninComponent } from "./auth/signin.component";
+import { SignupComponent } from "./auth/signup.component";
 
 
 
@@ -24,9 +27,13 @@ import {APP_BASE_HREF} from '@angular/common';
         MessagesComponent,
         userListComponent,
         AuthenticationComponent,
-        HeaderComponent
+        HeaderComponent,
+        LogoutComponent,
+        SignupComponent,
+        SigninComponent
+
     ],
-    imports: [BrowserModule, FormsModule, routing],
+    imports: [BrowserModule, FormsModule, routing, ReactiveFormsModule],
     providers: [{provide: APP_BASE_HREF, useValue : '/' }],
     bootstrap: [AppComponent]
 })
