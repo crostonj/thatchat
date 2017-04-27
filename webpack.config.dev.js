@@ -1,11 +1,12 @@
 var webpackMerge = require('webpack-merge');
 var commonConfig = require('./webpack.config.common.js');
+var path = require("path");
 
 module.exports = webpackMerge(commonConfig, {
     devtool: 'cheap-module-eval-source-map',
 
     output: {
-        path: './public/js/app',
+        path:  path.join(__dirname, "/public/js/app"),
         publicPath: "/js/app/",
         filename: 'bundle.js',
         chunkFilename: '[id].chunk.js'

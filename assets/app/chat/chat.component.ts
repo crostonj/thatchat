@@ -3,6 +3,7 @@ import { Message } from "./message.model";
 import * as io from "socket.io-client";
 import { ChatService } from "./chat.service";
 
+
 @Component({
     selector: 'app-chat-discussion',
     templateUrl: './chat.component.html'

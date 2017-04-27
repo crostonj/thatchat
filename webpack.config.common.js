@@ -1,8 +1,10 @@
 var webpack = require('webpack');
+var path = require("path");
+
 
 module.exports = {
     entry: {
-        'app': './assets/app/main.ts'
+        'app': path.join(__dirname, "/assets/app/main.ts")
     },
 
     resolve: {
@@ -21,11 +23,11 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                loader: 'html'
+                loader: 'html-loader'
             },
             {
                 test: /\.css$/,
-                loader: 'raw'
+                loader: 'raw-loader'
             }
         ]
     },
