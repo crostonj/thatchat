@@ -1,22 +1,29 @@
-    <div class="col-lg-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+        <header class="row spacing">
+            <nav class="col-md-8 col-md-offset-2">
+                <ul class="nav nav-tabs">
+                    <li routerLinkActive="active"><a [routerLink]="['signup']">New</a></li>
+                    <li routerLinkActive="active"><a [routerLink]="['signin']">History</a></li>
+                    <li routerLinkActive="active"><a [routerLink]="['logout']">Close</a></li>
+                </ul>
+            </nav>
+        </header>
+                <div class="row spacing">
+           <router-outlet></router-outlet>
+        </div>
+<div class="col-md-8 col-md-offset-2" style="background: whitesmoke !important">        
+            <!--<div class="panel-heading">
                 Welcome to ThatChat
                 <small class="pull-right">Last message:  Mon Jan 26 2015 - 18:39:23</small> 
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-9 ">
-                        <app-message-list></app-message-list>
-                        <app-message-input></app-message-input>
-                    </div>
-                    <div class="col-md-3">
-                        <chat-user-list></chat-user-list>
-                    </div>
+            </div>-->
+          <form>
+            <!--<div class="row">-->
+                <div class="col-md-9" style="height: 400">
+                    <app-message-list></app-message-list>
+                    <app-message-input></app-message-input>
                 </div>
-            </div>
-            <div class="panel-footer">
-                ThatChat
-            </div>
-        </div>
-    </div>
+                <div class="col-md-3">
+                    <chat-user-list></chat-user-list>
+                </div>
+            <!--</div>-->
+    </form>
+</div>

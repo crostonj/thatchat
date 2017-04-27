@@ -26,8 +26,16 @@ export class MessageInputComponent{
        	console.log('new message from client to websocket: ', form.value.content);
            console.log(form);
         const message = new Message(form.value.content, 'Jeff', new Date().getDate().toLocaleString());
-        this.chatService.addMessage(message);
-        this.socket.emit('new message');
+        
+        this.chatService.addMessage(message)
+            .subscribe(
+                data => console.log(data),
+                error => console.log(error),
+                function(){
+                    this.socket.emit('new message');
+                }
+            );
+        
 
         form.reset();
     }
