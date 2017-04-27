@@ -19,7 +19,7 @@ export class MessageInputComponent{
         // if (sessionStorage.getItem("userName") === null){
         //     this._router.navigate(['Registration']);
         // }
-        this.socket = io('http://127.0.0.1:8000/' ,{});
+        this.socket = io('http://127.0.0.1:3000/' ,{});
 
     }
     onSend(value: string){

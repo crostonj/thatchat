@@ -15,7 +15,7 @@ export class ChatComponent implements OnInit{
     conversation = this.chatService.getMessages();
 
     ngOnInit() {
-        this.socket = io('http://127.0.0.1:8000/', {});
+        this.socket = io('http://127.0.0.1:3000/', {});
         this.socket.on('connect', function () {
             console.log('connected!');
         });
