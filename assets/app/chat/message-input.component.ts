@@ -1,7 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, Host } from "@angular/core";
 import * as io from "socket.io-client";
 import { Message } from "./message.model";
 import { ChatService } from "./chat.service";
+//import { AppComponent } from "../app.component";
+import { NgForm } from "@angular/forms/forms";
+import { MessagesComponent } from "./messages.component";
+import { AppComponent } from "../app.component";
 
 
 @Component({
@@ -9,23 +13,22 @@ import { ChatService } from "./chat.service";
     templateUrl: './message-input.component.html'
 })
 export class MessageInputComponent{
-
-
     socket = null;
-     constructor(private chatService: ChatService){}
-
+    app = null;
+    constructor(private chatService: ChatService){
+    }
 
     ngOnInit() {
-        // if (sessionStorage.getItem("userName") === null){
-        //     this._router.navigate(['Registration']);
-        // }
-        this.socket = io('http://127.0.0.1:3000/' ,{});
+        this.socket = io(this.chatService.CHAT_HOST);
 
     }
-    onSend(value: string){
-       	console.log('new message from client to websocket: ', value);
-        const message = new Message(value, 'Jeff', new Date().getDate().toLocaleString());
+    onSend(form: NgForm){
+       	console.log('new message from client to websocket: ', form.value.content);
+           console.log(form);
+        const message = new Message(form.value.content, 'Jeff', new Date().getDate().toLocaleString());
         this.chatService.addMessage(message);
-        this.socket.emit('new message', message);
+        this.socket.emit('new message');
+
+        form.reset();
     }
 }

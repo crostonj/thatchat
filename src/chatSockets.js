@@ -6,11 +6,7 @@ module.exports = chatSocket = function() {
                     socket.on('new message', function(data) {
                         console.log(data);
                         // we tell the client to execute 'new message'
-                        socket.broadcast.emit('chatUpdate', {
-                            username: data.username,
-                            content: data.content,
-                            datetime: data.datetime
-                        });
+                        socket.broadcast.emit('chatUpdate');
                     });
                     // when the client emits 'add user', this listens and executes
                     socket.on('add user', function(username) {

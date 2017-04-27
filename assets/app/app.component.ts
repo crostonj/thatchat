@@ -3,9 +3,7 @@ import { ChatService } from "./chat/chat.service";
 
 @Component({
     selector: 'my-app',
-    templateUrl: './app.component.html',
-    providers: [ChatService]
+    templateUrl: './app.component.html'
 })
-export class AppComponent {
-    
+export class  AppComponent{
 }
