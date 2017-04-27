@@ -12,7 +12,7 @@
         <div class="ibox chat-view">
             <div class="row">
                 <div class="col-md-9 ">
-                    <chat-discussion></chat-discussion>
+                    <app-chat-discussion></app-chat-discussion>
                 </div>
                 <div class="col-md-3">
                     <chat-user-list></chat-user-list>
@@ -22,10 +22,7 @@
                 <div class="col-lg-12">
                     <div class="chat-message-form">
                         <form>
-                            <div class="form-group">
-
-                                <textarea class="form-control message-input" name="message" placeholder="Enter message text"></textarea> <input type="submit" value="Submit">
-                            </div>
+                            <app-message-input></app-message-input>
                         </form>
 
                     </div>

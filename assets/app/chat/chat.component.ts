@@ -1,16 +1,26 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
-import { Message } from "../message/message.model";
+import { Component, Input, Output, EventEmitter, OnInit } from "@angular/core";
+import { Message } from "./message.model";
+import * as io from "socket.io-client";
+import { ChatService } from "./chat.service";
 
 @Component({
-    selector: 'chat-discussion',
+    selector: 'app-chat-discussion',
     templateUrl: './chat.component.html'
 })
-export class ChatComponent{
-    messages: Message[] = [
-        new Message('Hello Jeff', 'Elsa'),
-        new Message('what are you up to?', 'Jeff'),
-        new Message('Leaving work and the way home', 'Elsa'),
-        new Message('OK, I should be home by 5:00', 'Jeff')
-    ];
+export class ChatComponent implements OnInit{
+    socket = null;
+    
+    constructor(private chatService: ChatService){}
+    conversation = this.chatService.getMessages();
 
+    ngOnInit() {
+        this.socket = io('http://127.0.0.1:8000/', {});
+        this.socket.on('connect', function () {
+            console.log('connected!');
+        });
+        this.socket.on('chatUpdate', function(data) {
+            console.log(data)
+            this.conversation.push(data);
+        }.bind(this));
+    }
 }

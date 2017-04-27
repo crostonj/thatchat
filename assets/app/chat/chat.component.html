@@ -1,3 +1,7 @@
-<div class="chat-discussion" id='chatdiscussion'>
-    <app-message [message]="message" *ngFor="let message of messages"></app-message>
-</div>
+
+
+<div class="chat-discussion .chatArea" id='chatdiscussion'>
+            <app-chat-message 
+            [message]="message"             
+            *ngFor="let message of conversation"></app-chat-message>
+        </div>

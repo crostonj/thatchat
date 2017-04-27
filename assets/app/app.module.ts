@@ -5,8 +5,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { ChatComponent } from "./chat/chat.component"
-import { MessageComponent } from "./message/message.component";
+import { MessageComponent } from "./chat/message.component";
 import { userListComponent } from "./userList/userList.component";
+import { MessageInputComponent } from "./chat/message-input.component";
 
 
 @NgModule({
@@ -14,9 +15,8 @@ import { userListComponent } from "./userList/userList.component";
         AppComponent,
         ChatComponent,
         MessageComponent,
-        userListComponent
-        
-
+        userListComponent,
+        MessageInputComponent
     ],
     imports: [BrowserModule, FormsModule],
     bootstrap: [AppComponent]
