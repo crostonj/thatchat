@@ -21,8 +21,11 @@ export class ChatService {
         this.messages.push(messageArg);
         const body = JSON.stringify(messageArg);
         const headers = new Headers({'Content-Type': 'application/json'});
+        const token = localStorage.getItem('token') 
+            ? '?token=' + localStorage.getItem('token') 
+            : '';
         let options = new RequestOptions({ headers: headers });
-        return this.http.post(this.messageSvcUrl, {messageArg}, options)
+        return this.http.post(this.messageSvcUrl + token, body, options)
                 .map((response: Response) => {
                     const result = response.json();
                     const message = new Message(result.content, result.user, result.datetime, result._id);

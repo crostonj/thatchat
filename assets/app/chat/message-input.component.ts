@@ -1,4 +1,4 @@
-import { Component, Host } from "@angular/core";
+import { Component, Host, OnInit } from "@angular/core";
 import * as io from "socket.io-client";
 import { Message } from "./message.model";
 import { ChatService } from "./chat.service";
@@ -12,14 +12,14 @@ import { AppComponent } from "../app.component";
     selector : 'app-message-input',
     templateUrl: './message-input.component.html'
 })
-export class MessageInputComponent{
+export class MessageInputComponent implements OnInit{
     socket = null;
     app = null;
     constructor(private chatService: ChatService){
     }
 
     ngOnInit() {
-        this.socket = io(this.chatService.CHAT_HOST, {});
+        this.socket = io(this.chatService.CHAT_HOST);
 
     }
     onSend(form: NgForm){
@@ -29,11 +29,10 @@ export class MessageInputComponent{
         
         this.chatService.addMessage(message)
             .subscribe(
-                data => console.log(data),
-                error => console.log(error),
-                function(){
+                data => {
                     this.socket.emit('new message');
-                }
+                },
+                error => console.log(error)
             );
         
 
