@@ -17,6 +17,7 @@ import { routing } from "./app.route";
 import { LogoutComponent } from "./auth/logout.component";
 import { SigninComponent } from "./auth/signin.component";
 import { SignupComponent } from "./auth/signup.component";
+import { AuthService } from "./auth/auth.service";
 
 
 
@@ -42,7 +43,7 @@ import { SignupComponent } from "./auth/signup.component";
         ReactiveFormsModule,
         HttpModule
     ],
-    providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+    providers: [{provide: APP_BASE_HREF, useValue : '/' }, AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

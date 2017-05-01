@@ -19,7 +19,7 @@ export class MessageInputComponent{
     }
 
     ngOnInit() {
-        this.socket = io(this.chatService.CHAT_HOST);
+        this.socket = io(this.chatService.CHAT_HOST, {});
 
     }
     onSend(form: NgForm){

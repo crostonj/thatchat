@@ -1,29 +1,49 @@
 
 import { Message } from "./message.model";
 import { Injectable, OnInit } from "@angular/core";
-import { Http, Response } from "@angular/http"
+import { Http, Response, Headers, RequestOptions } from "@angular/http"
+import 'rxjs/Rx'
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class ChatService {
     constructor(private http: Http){}
 
-    public CHAT_HOST = 'http://127.0.0.1:3000/';
 
+    public CHAT_HOST = 'http://127.0.0.1:5000/';
+    private messageSvcUrl = this.CHAT_HOST + 'message';
 
     private messages: Message[] = [];
 
-    addMessage(message: Message){
+   addMessage(messageArg: Message){
+        console.log('SvcUrl: ' + this.messageSvcUrl);
 
-        this.messages.push(message);
-        const body = JSON.stringify(message);
-        return this.http.post(this.CHAT_HOST + 'message', body)
-                .map((response: Response) => response.json())
-                .catch((error: Response) => Observable.throw(error.json()));
+        this.messages.push(messageArg);
+        const body = JSON.stringify(messageArg);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(this.messageSvcUrl, {messageArg}, options)
+                .map((response: Response) => {
+                    const result = response.json();
+                    const message = new Message(result.content, result.user, result.datetime, result._id);
+                    this.messages.push(message);
+                    return message;
+                })
+                .catch((error: Response) => Observable.throw(error));
     }
 
     getMessages(){
-        return this.messages;
+        return this.http.get(this.messageSvcUrl)
+            .map((response: Response) => {
+                const messages = response.json().obj;
+                let transformedMessages: Message[] = [];
+                for (let message of messages) {
+                    transformedMessages.push(new Message(message.content, message.user,  message.datetime, message._id));
+                }
+                this.messages = transformedMessages;
+                return transformedMessages;
+            })
+            .catch((error: Response) => Observable.throw(error));
     }
 
     deleteMessage(message: Message){

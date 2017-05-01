@@ -25,7 +25,12 @@ export class ListComponent implements OnInit{
             console.log('connected!');
         });
         this.socket.on('chatUpdate', function(data) {
-            this.messages  = this.chatService.getMessages();
+            this.chatService.getMessages()
+                .subscribe(
+                   (messages: Message[]) => {
+                        this.messages = messages
+                   } 
+                )
         }.bind(this));
     }
 }
