@@ -3,12 +3,14 @@ version: '2' # specify docker-compose version
 # Define the services/containers to be run
 services:
   thatchat: # name of the first service
-    build: . # specify the directory of the Dockerfile
+    #build: . # specify the directory of the Dockerfile
+    image: crostonj/thatchat:latest 
     ports:
       - "3000:3000" # specify port forwarding
 
   thatchat-server: #name of the second service
-    build: ..\thatchat-server # specify the directory of the Dockerfile
+    #build: ..\thatchat-server # specify the directory of the Dockerfile
+    image: crostonj/thatchat-server:latest
     links:
       - "db:database"
     ports:
