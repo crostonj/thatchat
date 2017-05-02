@@ -2,20 +2,22 @@ version: '2' # specify docker-compose version
 
 # Define the services/containers to be run
 services:
-  angular: # name of the first service
-    build: angular-client # specify the directory of the Dockerfile
+  thatchat: # name of the first service
+    build: . # specify the directory of the Dockerfile
     ports:
-      - "4200:4200" # specify port forewarding
+      - "3000:3000" # specify port forwarding
 
-  express: #name of the second service
-    build: express-server # specify the directory of the Dockerfile
+  thatchat-server: #name of the second service
+    build: ..\thatchat-server # specify the directory of the Dockerfile
+    links:
+      - "db:database"
     ports:
-      - "3000:3000" #specify ports forewarding
+      - "5000:5000" #specify ports forwarding
 
-  database: # name of the third service
+  db: # name of the third service
     image: mongo # specify image to build container from
     ports:
-      - "27017:27017" # specify port forewarding
+      - "27017:27017" # specify port forwarding
 
 
 

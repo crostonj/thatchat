@@ -9,7 +9,7 @@ let mongoose = require('mongoose');
 let appRoutes = require('./routes/app');
 
 let app = express();
-mongoose.connect('mongodb://localhost:27017/thatchat');
+//mongoose.connect('mongodb://localhost:27017/thatchat');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

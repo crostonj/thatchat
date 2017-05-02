@@ -8,7 +8,7 @@ import { Http, RequestOptions, Response, Headers } from "@angular/http";
 @Injectable()
 export class AuthService {
 
-    public DATA_HOST = 'http://127.0.0.1:5000/';
+    public DATA_HOST = 'http://10.212.9.115:5000/';
     private userSvcUrl = this.DATA_HOST + 'user/';
 
     constructor(private http: Http){
@@ -23,7 +23,7 @@ export class AuthService {
                             .catch((error: Response) => Observable.throw(error));
      }
 
-          signin(user: User){
+    signin(user: User){
          const body = JSON.stringify(user);
          const headers = new Headers({'Content-Type': 'application/json'});
          let options = new RequestOptions({ headers: headers });

@@ -7,7 +7,8 @@
                 placeholder="Enter message text"
                 ngModel
                 name="content"
-                required ></textarea> 
+                required 
+                (keyup.enter)="onSend(f)"></textarea> 
         </div>
         <button class="btn btn-primary" value="Submit">Send</button>
     </form>

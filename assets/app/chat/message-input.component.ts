@@ -6,6 +6,7 @@ import { ChatService } from "./chat.service";
 import { NgForm } from "@angular/forms/forms";
 import { MessagesComponent } from "./messages.component";
 import { AppComponent } from "../app.component";
+import { SafeUser } from "../userList/safeuser.model";
 
 
 @Component({
@@ -15,17 +16,20 @@ import { AppComponent } from "../app.component";
 export class MessageInputComponent implements OnInit{
     socket = null;
     app = null;
+    currentUser : SafeUser = null;
     constructor(private chatService: ChatService){
     }
 
     ngOnInit() {
         this.socket = io(this.chatService.CHAT_HOST);
+        this.currentUser = this.chatService.getCurrentUser();
 
     }
     onSend(form: NgForm){
        	console.log('new message from client to websocket: ', form.value.content);
            console.log(form);
-        const message = new Message(form.value.content, 'Jeff', new Date().getDate().toLocaleString());
+        
+        const message = new Message(form.value.content, this.currentUser.lastName , new Date().getDate().toString());
         
         this.chatService.addMessage(message)
             .subscribe(
@@ -38,4 +42,5 @@ export class MessageInputComponent implements OnInit{
 
         form.reset();
     }
+
 }
