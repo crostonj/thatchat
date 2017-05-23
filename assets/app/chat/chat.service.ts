@@ -57,15 +57,4 @@ export class ChatService {
         this.messages.splice(this.messages.indexOf(message), 1);
     }
 
-    getCurrentUser(){
-        let userId = localStorage.getItem('userId');
-        return this.userService.getUser(userId)
-        .subscribe(
-            data => {
-                return data.json()
-            },
-            error => console.error(error)
-        );
-     }
-
 }

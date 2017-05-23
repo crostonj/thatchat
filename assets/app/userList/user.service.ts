@@ -17,9 +17,8 @@ export class UserService {
         return this.http.get(this.userSvcUrl + '/' + userID)
             .map((response: Response) => {
                 const user = response.json().user;
-                let transformedUser: SafeUser = null;
 
-                transformedUser = new SafeUser(
+                const transformedUser = new SafeUser(
                     user.firstName,
                     user.lastName,
                     user.email);

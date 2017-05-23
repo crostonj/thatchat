@@ -3,7 +3,13 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [
+    "configurations": [{
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceRoot}"
+        },
         {
             "type": "node",
             "protocol": "inspector",
@@ -14,7 +20,7 @@
         },
         {
             "type": "node",
-            "protocol": "inspector",            
+            "protocol": "inspector",
             "request": "attach",
             "name": "(Node)Attach to Process",
             "address": "localhost",
