@@ -6,7 +6,7 @@ import { ChatService } from "./chat.service";
 import { NgForm } from "@angular/forms/forms";
 import { MessagesComponent } from "./messages.component";
 import { AppComponent } from "../app.component";
-import { SafeUser } from "../userList/safeuser.model";
+import { User } from "../auth/user.model";
 
 
 @Component({
@@ -16,7 +16,7 @@ import { SafeUser } from "../userList/safeuser.model";
 export class MessageInputComponent implements OnInit{
     socket = null;
     app = null;
-    currentUser : SafeUser = null;
+    currentUser : User = null;
     constructor(private chatService: ChatService){
     }
 

@@ -8,6 +8,9 @@ services:
     ports:
       - "3000:3000" # specify port forwarding
 
+    links:
+      - "thatchat-server:server"
+      
   thatchat-server: #name of the second service
     #build: ..\thatchat-server # specify the directory of the Dockerfile
     image: crostonj/thatchat-server:latest

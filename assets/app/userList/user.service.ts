@@ -7,9 +7,9 @@ import { SafeUser } from "./safeuser.model";
 @Injectable()
 export class UserService {
 
-    public USERHOST = 'http://10.212.9.115:5000/';
+    public USERHOST = 'http://server:5000/';
     private userSvcUrl = this.USERHOST + 'user'
-
+    private userList = [];
 
     constructor(private http: Http){}
 
@@ -27,5 +27,19 @@ export class UserService {
                 return transformedUser;
             })
              .catch((error: Response) => Observable.throw(error));            
+    }
+
+    getUserList(){
+        return this.http.get(this.userSvcUrl)
+            .map((response: Response) => {
+                const userlist = response.json().userList;
+                let safeuserList: SafeUser[] = [];
+
+                for (let user of userlist) {
+                    safeuserList.push(new SafeUser(user.firstName, user.lastName,  user.email));
+                }
+                this.userList = safeuserList;
+                return safeuserList;
+            })
     }
 }
