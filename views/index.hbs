@@ -1,65 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png" />
-	<link rel="icon" type="image/png" href="img/favicon.png" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>That Chat</title>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    <!-- Page title set in pageTitle directive -->
+   <title>That Chat</title>
 
-    <!-- Bootstrap core CSS     -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <!--  Material Dashboard CSS    -->
-    <link href="css/material-dashboard.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
+    <!-- Font awesome -->
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
 
-
-
-    <!--     Fonts and icons     -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
-
-    <!-- Polyfill for older browsers -->
-    <script src="js/shim.min.js"></script>
-    {{!--<script src="js/zone/zone.js"></script>--}}
-    <script src="js/Reflect.js"></script>
-    <script src="js/system/system.src.js"></script>
-    <script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
-
+    <!-- Main Inspinia CSS files -->
+    <link href="/css/animate.css" rel="stylesheet">
+    <link id="loadBefore" href="/css/style.css" rel="stylesheet">
    
 
-<style type="text/css">
-   body { background: #1b6ae8 !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
-   form { background: whitesmoke !important;}
-   header { background: whitesmoke !important;}
-</style>
+
 
 </head>
 <body>
 <my-app>Loading...</my-app>
 
-<!--   Core JS Files   -->
-<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
-<script src="js/arrive.min.js"></script>
-<script src="js/material.min.js" type="text/javascript"></script>
+<!-- jQuery and Bootstrap -->
+<script src="/js/jquery/jquery-2.1.1.min.js"></script>
+<script src="/js/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="/js/bootstrap/bootstrap.min.js"></script>
 
-<!--  Charts Plugin -->
-<script src="js/chartist.min.js"></script>
+<!-- MetsiMenu -->
+<script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
-<!--  Notifications Plugin    -->
-<script src="/js/bootstrap-notify.js"></script>
+<!-- SlimScroll -->
+<script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
+<!-- Peace JS -->
+<script src="/js/plugins/pace/pace.min.js"></script>
 
-<!-- Material Dashboard javascript methods -->
-<script src="/js/material-dashboard.js"></script>
+<!-- Custom and plugin javascript -->
+<script src="/js/inspinia.js"></script>
+
+<!-- Main Angular scripts-->
+<script src="/js/angular/angular.min.js"></script>
+<script src="/js/angular/angular-sanitize.js"></script>
+<script src="/js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
+<script src="/js/angular-translate/angular-translate.min.js"></script>
+<script src="/js/ui-router/angular-ui-router.min.js"></script>
+<script src="/js/bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
+<script src="/js/plugins/angular-idle/angular-idle.js"></script>
+
+<!--
+ You need to include this script on any page that has a Google Map.
+ When using Google Maps on your own site you MUST signup for your own API key at:
+ https://developers.google.com/maps/documentation/javascript/tutorial#api_key
+ After your sign up replace the key in the URL below..
+-->
+{{!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70"></script>--}}
+
+<!-- Anglar App Script -->
+<script src="/js/app.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/translations.js"></script>
+<script src="/js/directives.js"></script>
+<script src="/js/controllers.js"></script>
 
 <script src="/js/app/bundle.js"></script>
+
 
 </body>
 </html>
