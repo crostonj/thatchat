@@ -13,7 +13,7 @@ export class ChatService {
 
 
 
-    public CHAT_HOST = 'http://server:5000/';
+    public CHAT_HOST = 'http://localhost:5000/';
     private messageSvcUrl = this.CHAT_HOST + 'message';
     private currentUser: SafeUser;
     private messages: Message[] = [];

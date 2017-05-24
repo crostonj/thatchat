@@ -7,7 +7,7 @@ import { SafeUser } from "./safeuser.model";
 @Injectable()
 export class UserService {
 
-    public USERHOST = 'http://server:5000/';
+    public USERHOST = 'http://localhost:5000/';
     private userSvcUrl = this.USERHOST + 'user'
     private userList = [];
 

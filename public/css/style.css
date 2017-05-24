@@ -1,4 +1,42 @@
 .chatArea {
-  height: 50%;
-  padding-bottom: 60px;
+    height: 50%;
+    padding-bottom: 60px;
+}
+
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: pink;
+}
+
+a {
+    color: #00B7FF;
+    cursor: pointer;
+}
+
+a:hover,
+a:active {
+    color: #00B7FF;
+    text-decoration: underline;
+}
+
+a.danger {
+    color: red;
+}
+
+.spacing {
+    margin-bottom: 20px;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.message-date {
+    font-weight: bold
+}
+
+.message-author {
+    font-size: medium;
+    font-style: italic
 }

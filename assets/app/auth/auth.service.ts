@@ -8,7 +8,7 @@ import { Http, RequestOptions, Response, Headers } from "@angular/http";
 @Injectable()
 export class AuthService {
 
-    public DATA_HOST = 'http://server:5000/';
+    public DATA_HOST = 'http://localhost:5000/';
     private userSvcUrl = this.DATA_HOST + 'user/';
 
     constructor(private http: Http){

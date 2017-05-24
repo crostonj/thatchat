@@ -39,7 +39,14 @@ export class MessageInputComponent implements OnInit{
        	console.log('new message from client to websocket: ', form.value.content);
            console.log(form);
         
-        const message = new Message(form.value.content, this.currentUser.lastName , new Date().getDate().toString());
+        var today = new Date();
+
+
+
+var datetime =   today.getHours() + ":"  
+                + today.getMinutes() + ":" 
+                + today.getSeconds();
+        const message = new Message(form.value.content, this.currentUser.firstName , datetime);
         
         this.chatService.addMessage(message)
             .subscribe(
