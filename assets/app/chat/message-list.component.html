@@ -1,6 +1,4 @@
-<div #scrollMe style="display:block;height:500px;overflow: hidden;overflow-y: scroll;">
-    <app-chat-message 
-        [message]="message"             
-        *ngFor="let message of messages">
+<div class="chat-discussion">
+    <app-chat-message [message]="message" *ngFor="let message of messages">
     </app-chat-message>
 </div>

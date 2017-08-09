@@ -19,6 +19,7 @@ import { SigninComponent } from "./auth/signin.component";
 import { SignupComponent } from "./auth/signup.component";
 import { AuthService } from "./auth/auth.service";
 import { UserService } from "./userList/user.service";
+import { ChatHistoryComponent } from "./chatHistory/chatHistory.component";
 
 
 
@@ -34,8 +35,8 @@ import { UserService } from "./userList/user.service";
         HeaderComponent,
         LogoutComponent,
         SignupComponent,
-        SigninComponent
-
+        SigninComponent,
+        ChatHistoryComponent
     ],
     imports: [
         BrowserModule,

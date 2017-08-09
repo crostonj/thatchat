@@ -8,22 +8,22 @@
         <h3>Register to ThatChat</h3>
         <form class="m-t" role="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" class="form-control" formControlName="firstName">
+                <input type="text" id="firstName" class="form-control" formControlName="firstName" placeholder="First Name">
             </div>
             <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" class="form-control" formControlName="lastName">
+                <input type="text" id="lastName" class="form-control" formControlName="lastName" placeholder="Last Name">
             </div>
             <div class="form-group">
-                <label for="email">Mail</label>
-                <input type="email" id="email" class="form-control" formControlName="email">
+                <input type="email" id="email" class="form-control" formControlName="email" placeholder="Emal">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" class="form-control" formControlName="password">
+                <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password">
             </div>
-            <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid">Submit</button>
+            <button class="btn btn-primary block full-width m-" type="submit" [disabled]="!myForm.valid">Submit</button>
+
+            <p class="text-muted text-center"><small>Already have an account?</small></p>
+            <a class="btn btn-sm btn-white btn-block" [routerLink]="['/auth/signin']">Login</a>
+
         </form>
     </div>
 </div>

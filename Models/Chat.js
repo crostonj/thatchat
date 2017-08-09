@@ -2,10 +2,10 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var schema = Schema({
-    content: { type: String, required: true },
-    chat: { type: String, ref: 'Chat' },
+    users: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     datetime: { type: String, required: true },
-    messageId: { type: Schema.Types.ObjectId }
+    chatId: { type: Schema.Types.ObjectId },
+    chatName: { type: String }
 });
 
 

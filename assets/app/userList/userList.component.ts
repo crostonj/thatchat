@@ -9,7 +9,7 @@ import { SafeUser } from "./safeuser.model";
 })
 export class userListComponent implements OnInit{
 
-    private users = [];
+    public users = [];
     constructor(private userService: UserService){
 
     }

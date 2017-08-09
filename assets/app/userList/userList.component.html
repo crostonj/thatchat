@@ -2,8 +2,9 @@
     <div class="users-list" *ngFor="let User of users">
         <div class="chat-user">
             <div class="chat-user-name">
-                <a href="#"> {{ User.firstName }}</a>
+                <a href="#"> {{ User.firstName }} {{ User.lastName }}</a>
             </div>
         </div>
     </div>
+
 </div>

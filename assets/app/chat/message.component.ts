@@ -10,4 +10,8 @@ export class MessageComponent{
     @Input() message: Message;
     @Output() messageSend = new EventEmitter<string>();
 
-}
+   fromUCurretUser(){
+       
+   } 
+
+}   

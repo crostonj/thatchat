@@ -6,8 +6,7 @@ var schema = Schema({
     firstname: { type: String, required: true },
     lastname: { type: String, required: true },
     password: { type: String, required: true },
-    email: { type: String, required: true, unique: true, ref: 'Message' },
-    messages 
+    email: { type: String, required: true, unique: true, ref: 'Message' }
 });
 
 schema.plugin(mongooseUniqueValidator);
